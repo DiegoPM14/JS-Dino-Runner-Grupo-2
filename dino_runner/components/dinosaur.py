@@ -1,13 +1,13 @@
 import pygame
 
 from pygame.sprite import Sprite
-
 from dino_runner.utils.constants import DUCKING, JUMPING, RUNNING
 
 
 class Dinosaur(Sprite):
     X_POS = 80
     Y_POS = 310
+    Y_POS_DUCK = 350
     JUMP_VEL = 8.5
 
     def __init__(self):
@@ -66,7 +66,7 @@ class Dinosaur(Sprite):
         self.image = DUCKING[0] if self.step_index <5 else DUCKING[1]
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = self.X_POS
-        self.dino_rect.y= self.Y_POS + 40
+        self.dino_rect.y= self.Y_POS_DUCK
 
     def draw(self, screen):
         screen.blit(self.image,(self.dino_rect.x, self.dino_rect.y))
