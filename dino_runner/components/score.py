@@ -19,3 +19,6 @@ class Score(Sprite):
         text_rect = text.get_rect()
         text_rect.center = (1000, 50)
         screen.blit(text, text_rect)
+
+    def reset_score(self):
+        self.score =0
