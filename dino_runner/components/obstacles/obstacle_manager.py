@@ -26,8 +26,10 @@ class ObstacleManager:
         for obstacle in self.obstacles:
             obstacle.update(game_speed, self.obstacles)
             if player.dino_rect.colliderect(obstacle.rect):
-               on_death()
-               break
+               if on_death():
+                  self.obstacles.remove(obstacle)
+               else:
+                    break
 
     def draw(self, screen):
         for obstacle in self.obstacles:
